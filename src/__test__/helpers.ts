@@ -3,10 +3,11 @@ import type {
   Args,
   ComponentAnnotations,
   StoryAnnotations,
-  Renderer
+  Renderer,
+  WebRenderer
 } from "@storybook/types";
 import qs from "qs";
-import type { HtmlRenderer, StoryContext } from '@storybook/html'
+import type { StoryContext } from '@storybook/web-components'
 import type { FASTElement, ViewTemplate } from "@microsoft/fast-element";
 import type { Maybe } from "./global.js";
 /**
@@ -46,8 +47,8 @@ export function fixtureURL(
  * A helper that returns a function to bind a Storybook story to a ViewTemplate.
  */
 export type FASTFramework = {
-  component: typeof FASTElement | HtmlRenderer['component'] | ViewTemplate<any, any>;
-  storyResult: FASTElement | Element | DocumentFragment | HtmlRenderer['storyResult'];
+  component: typeof FASTElement | WebRenderer['component'] | ViewTemplate<any, any>;
+  storyResult: FASTElement | Element | DocumentFragment | WebRenderer['storyResult'];
   canvasElement: Renderer['canvasElement'] | HTMLCanvasElement;
   T?: any;
 };
